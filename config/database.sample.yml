@@ -16,10 +16,3 @@ test:
   host: 127.0.0.1
   username: root
   password: 
-
-production:
-  adapter: mysql
-  database: xtt
-  host: 127.0.0.1
-  username: xtt_production
-  password: AYBABTU
