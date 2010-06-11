@@ -311,7 +311,6 @@ describe StatusesController, "DELETE #destroy" do
     define_models
     act! { delete :destroy, :id => 1, :format => 'xml' }
 
-    it_assigns :status
     it_renders :blank
   end
 end

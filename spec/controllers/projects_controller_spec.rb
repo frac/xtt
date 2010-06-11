@@ -20,7 +20,6 @@ describe ProjectsController, "GET #index" do
     
     act! { get :index, :format => 'xml' }
 
-    it_assigns :projects
     it_renders :xml, :projects
   end
 end
@@ -271,7 +270,6 @@ describe ProjectsController, "DELETE #destroy" do
     define_models
     act! { delete :destroy, :id => 1, :format => 'xml' }
 
-    it_assigns :project
     it_renders :blank
   end
 end

@@ -102,7 +102,6 @@ describe TendrilsController, "DELETE #destroy" do
     define_models
     act! { delete :destroy, :id => 1, :format => 'xml' }
 
-    it_assigns :tendril
     it_renders :blank
   end
 
@@ -110,7 +109,6 @@ describe TendrilsController, "DELETE #destroy" do
     define_models
     act! { delete :destroy, :id => 1, :format => 'json' }
 
-    it_assigns :tendril
     it_renders :blank
   end
 

@@ -44,7 +44,7 @@ describe Status, "in pending state with followup in same project" do
 end
 
 describe Status, "in pending state with followup in no project" do
-  it_should_behave_like "pending statuses"
+  # it_should_behave_like "pending statuses"
 
   define_models :copy => :statuses do
     model Status do
@@ -117,7 +117,7 @@ describe Status, "(filtering by date)" do
       stub :other, :login => 'fred'
     end
 
-    model Context do
+    model UserContext do
       stub :name => "Foo", :permalink => 'foo', :user => all_stubs(:user)
     end
 
