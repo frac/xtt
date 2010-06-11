@@ -5,4 +5,3 @@ db/*.sqlite3*
 .rake_tasks
 vendor/rails
 .DS_Store
-tmp
