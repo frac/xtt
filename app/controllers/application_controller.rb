@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   cattr_accessor :host_name, :instance_writer => false
 
   include AuthenticatedSystem
-  include ExceptionNotifiable
   helper :all # include all helpers, all the time
   before_filter :set_host
   before_filter :adjust_format_for_iphone
