@@ -19,7 +19,7 @@ Rails::Initializer.run do |config|
     :secret      => 'SEKRITSEKRITSEKRITSEKRITSEKRITSEKRITSEKRITSEKRITSEKRIT!'
   }
 
-  config.gem 'tinder', :version => '1.2.0'
+  config.gem 'tinder', :version => '1.4.0'
   config.gem 'fastercsv', :version => '1.2.3'
   config.gem 'googlecharts', :lib => "gchart", :version => '1.3.6'
   config.gem 'hpricot', :version => '>=0.6'

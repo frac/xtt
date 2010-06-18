@@ -5,3 +5,8 @@ db/*.sqlite3*
 .rake_tasks
 vendor/rails
 .DS_Store
+config/deploy/production.rb
+config/deploy/staging.rb
+config/initializers/custom.rb
+config/moonshine/production.yml
+config/moonshine/staging.yml

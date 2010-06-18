@@ -1,0 +1,11 @@
+--- 
+- :version: = 1.4.0
+  :name: tinder
+- :version: ">= 0.6"
+  :name: hpricot
+- :name: json
+- :name: capistrano-log_with_awesome
+- :version: ">= 2.0.4"
+  :name: ruby-openid
+- :version: 2.3.4
+  :name: rails

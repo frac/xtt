@@ -16,5 +16,5 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-config.gem 'rspec', :version => '1.2.9', :lib => false
-config.gem 'rspec-rails', :version => '1.2.9', :lib => false
+config.gem 'json', :lib => false
+config.gem 'capistrano-log_with_awesome', :lib => false
