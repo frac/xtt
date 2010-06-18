@@ -29,7 +29,7 @@
   <% sbox.content = capture do %>
   <div id="projectlist">
     <ul class="text-list" id="project-lists">
-    <% unless current_user.projects.empty? %>
+    <% unless current_user.projects.empty? or current_user.memberships.empty? %>
     <% current_user.memberships.contexts.each do |context, memberships| %>
       <% total_project = memberships.map { |m| m.project.statuses.filtered_hours(nil, :daily) } %>
       <% total_user_hours = total_project.sum { |m| m.total(current_user) } %>
