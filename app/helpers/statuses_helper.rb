@@ -82,7 +82,7 @@ module StatusesHelper
     hour_block = lambda { |hours| 
                   case filter
                     when :weekly
-                      hours.each { |item| hours_cache.update(item[1].strftime("%A")[0..2] => item[2]) }
+                      hours.each { |item| hours_cache.update(item[1].strftime("%A")[0..2] => item[2]) unless item[1].nil? }
                     when :monthly, :'bi-weekly'
                       hours.each { |item| hours_cache.update(item[1].day => item[2]) }
                   end
