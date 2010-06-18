@@ -34,6 +34,7 @@ To deploy, you need to create the following files (we provide also the default t
 
     TT_HOST  = 'example.com'
     TT_EMAIL = 'admin@example.com'
+    SIGNUPS_ENABLED = false
 
     ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.update \
      :time => '%I:%M %p'

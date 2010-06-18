@@ -26,6 +26,9 @@ class UsersController < ApplicationController
 
   # user signup
   def new
+    unless SIGNUPS_ENABLED
+      render :text => "Signups are not enabled at this time!"
+    end
     @user = User.new
   end
   
