@@ -41,7 +41,11 @@
         </div>
         <div class="media-content">
           <h4 class="media-title status">
-            <%= link_to_filtered_statuses h(status.project.nil? ? '[out]' : status.project.name), :context => nil, :project => status.project %> /
+            <% if status.project.nil? %>
+              <%= link_to_filtered_statuses h('[out]'), :context => "etc" %> 
+            <% else %>
+              <%= link_to_filtered_statuses h(status.project.name), :context => nil, :project => status.project %> /
+            <% end %>
             <%= link_to(status_for(status), status, :class => 'entry-title entry-content') %>
           </h4>
           <p class="quiet">posted by <%= link_to(h(status.user.login), status.user) %>,  <%= status_at status %> from <strong><%=h status.source || "the web" %></strong></p>
