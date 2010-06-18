@@ -18,3 +18,4 @@ config.action_mailer.raise_delivery_errors = false
 
 config.gem 'json', :lib => false
 config.gem 'capistrano-log_with_awesome', :lib => false
+config.gem 'capistrano-gitflow', :lib => false
