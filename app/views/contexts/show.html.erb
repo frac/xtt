@@ -106,7 +106,7 @@
       </ul>
     </div>
     
-    <% if @context.is_a?(UserContext) %>
+    <% if @context.is_a?(UserContext) && !@context.user.nil? %>
     <div id="context" style="display:none">
       <% form_for(@context, :html => { :class => "form" }, :method => 'put') do |form| %>
         <div class='row final'>
