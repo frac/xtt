@@ -13,7 +13,7 @@ module AASM
       #
       # Adds
       #
-      #   before_validation_on_create :aasm_ensure_initial_state
+      #   before_validation :aasm_ensure_initial_state, :on => :create
       #
       # As a result, it doesn't matter when you define your methods - the following 2 are equivalent
       #
@@ -50,8 +50,7 @@ module AASM
             end
           end
         end
-
-        base.before_validation_on_create :aasm_ensure_initial_state
+        base.respond_to?(:before_validation_on_create) ? base.before_validation_on_create(:aasm_ensure_initial_state) : base.before_validation(:aasm_ensure_initial_state, :on => :create)
       end
 
       module ClassMethods
@@ -155,7 +154,7 @@ module AASM
         #   foo.aasm_state # => nil
         #
         def aasm_ensure_initial_state
-          send("#{self.class.aasm_column}=", self.aasm_current_state.to_s)
+          send("#{self.class.aasm_column}=", self.aasm_enter_initial_state.to_s) if send(self.class.aasm_column).blank?
         end
 
       end
@@ -180,7 +179,6 @@ module AASM
 
       module WriteState
         # Writes <tt>state</tt> to the state column and persists it to the database
-        # using update_attribute (which bypasses validation)
         #
         #   foo = Foo.find(1)
         #   foo.aasm_current_state # => :opened
@@ -230,7 +228,7 @@ module AASM
         # This allows for nil aasm states - be sure to add validation to your model
         def aasm_read_state
           if new_record?
-            send(self.class.aasm_column).blank? ? self.class.aasm_initial_state : send(self.class.aasm_column).to_sym
+            send(self.class.aasm_column).blank? ? aasm_determine_state_name(self.class.aasm_initial_state) : send(self.class.aasm_column).to_sym
           else
             send(self.class.aasm_column).nil? ? nil : send(self.class.aasm_column).to_sym
           end
@@ -240,7 +238,7 @@ module AASM
       module NamedScopeMethods
         def aasm_state_with_named_scope name, options = {}
           aasm_state_without_named_scope name, options
-          self.named_scope name, :conditions => {self.aasm_column => name.to_s} unless self.respond_to?(name)
+          self.named_scope name, :conditions => { "#{table_name}.#{self.aasm_column}" => name.to_s} unless self.respond_to?(name)
         end
       end
     end
