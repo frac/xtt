@@ -75,8 +75,8 @@ class Status < ActiveRecord::Base
 
 protected
   def set_project_from_code
-    # Don't set the project if it's a new record and we have a project already. hm.
-    unless new_record? && project?
+    # Don't set the project if it's already got a project. hm.
+    unless project?
       if @code.blank? # Don't set a project
         self.project = nil
         return
