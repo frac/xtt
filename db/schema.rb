@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091105233416) do
+ActiveRecord::Schema.define(:version => 20100623170744) do
 
   create_table "bj_config", :primary_key => "bj_config_id", :force => true do |t|
     t.string "hostname"
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(:version => 20091105233416) do
     t.integer "project_id"
     t.integer "user_id"
     t.string  "code"
-    t.integer "context_id"
+    t.integer "user_context_id"
   end
 
   create_table "messages", :force => true do |t|
