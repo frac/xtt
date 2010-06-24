@@ -3,7 +3,7 @@ class Membership < ActiveRecord::Base
     
   belongs_to :project
   belongs_to :user
-  belongs_to :context, :class_name => "UserContext"
+  belongs_to :context, :class_name => "UserContext", :foreign_key => 'user_context_id'
 
   validates_presence_of :project_id, :user_id
   validates_uniqueness_of :code, :scope => :user_id
