@@ -112,7 +112,7 @@
     
     <% if @context.is_a?(UserContext) && !@context.user.nil? %>
     <div id="context" style="display:none">
-      <% form_for(@context, :html => { :class => "form" }, :method => 'put') do |form| %>
+      <% form_for(@context, :html => { :class => "form" }, :method => 'put', :url => {:controller => 'contexts'}) do |form| %>
         <div class='row final'>
           <p>
             <%= form.label :Name %>
