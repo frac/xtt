@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
       hours = @project.statuses.filtered_hours(user_status_for(user), params[:filter], :date => params[:date])
       @user_hours << hours unless hours.empty?
     end
+    @users = user_ids
     
     respond_to do |format|
       format.html # show.html.erb

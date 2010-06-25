@@ -2,7 +2,8 @@
    :encoding => 'text',
    :bg => 'CACACA', 
    :data => chart_data,
+   :legend => legend,
    :line_colors => colors, #['224499'],
-   :size => '380x140',
+   :size => '480x140',
    :custom => "&amp;chg=0,25,1,0&amp;chxr=0,#{date_range.first.day},#{date_range.last.day}|1,0,#{max.to_i}&chds=0,#{max}&chbh=8",
    :axis_with_labels => %w(x y)), :style => 'margin-top:27px', :id => "#{params[:filter]}-chart", :class => 'special-chart') %>

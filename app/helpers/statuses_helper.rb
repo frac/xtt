@@ -63,7 +63,7 @@ module StatusesHelper
     filter = filter.to_sym if filter
     case filter
       when :weekly then %w(Mon Tue Wed Thu Fri Sat Sun)
-      when :monthly, :'bi-weekly' then 
+      when :monthly, :biweekly then 
         first, last = date_range.first.day, date_range.last.day
         if last > first # end date in same month
           (first..last).to_a
@@ -82,7 +82,7 @@ module StatusesHelper
     case filter
       when :weekly
         times.each { |item| hours_cache.update(item[1].strftime("%A")[0..2] => item[2]) unless item[1].nil? }
-      when :monthly, :'bi-weekly'
+      when :monthly, :biweekly
         times.each { |item| hours_cache.update(item[1].day => item[2]) }
     end
     labels.inject([]) { |memo, day| memo << hours_cache[day].to_f }
@@ -101,7 +101,7 @@ module StatusesHelper
       when :weekly
         prev_date = start_date - 1.week
         next_date = start_date + 1.week if now > date_range.last
-      when :'bi-weekly'
+      when :biweekly
         prev_date = start_date.day == 1 ? (start_date - 1.day).beginning_of_month + 14.days : start_date.beginning_of_month
         next_date = start_date.day == 1 ? start_date + 14.days : (start_date + 1.month).beginning_of_month if now > date_range.last
       when :monthly

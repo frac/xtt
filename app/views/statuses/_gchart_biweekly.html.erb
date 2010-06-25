@@ -1,11 +1,12 @@
-	  <%= image_tag(Gchart.bar(
+  <%= image_tag(Gchart.bar(
 	     :encoding => 'simple',
        :bg => 'CACACA', 
        :max_value => max,
        :data => chart_data,
          :line_colors => colors, #['224499'],
-       :size => '380x140',
-       :custom => "&amp;chg=0,25,1,0&amp;chxr=0,#{date_range.first.day},#{date_range.last.day}|1,0,#{max.to_i}&chds=0,#{max}",
+       :size => '480x140',
+       :legend => legend,
+       :custom => "&amp;chg=0,25,1,0&amp;chxr=0,#{date_range.first.day},#{date_range.last.day}|1,0,#{max.to_i}&chds=0,#{max}&amp;chbh=17",
 
 #       :custom =>      "&amp;chm=B,4E77DD,0,0,0&amp;chg=0,25,1,0&amp;chbh=40&amp;chxr=0,#{date_range.first.day},#{date_range.last.day}|1,0,#{normalized_max(chart_data).to_i}",            
        :axis_with_labels => %w(x y)), :style => 'margin-top:27px', :id => "#{params[:filter]}-chart", :class => 'special-chart') %>

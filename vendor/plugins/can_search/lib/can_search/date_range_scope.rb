@@ -26,7 +26,7 @@ module CanSearch
         mon = now.beginning_of_week
         (mon..mon + 1.week - 1.second)
       },
-      :'bi-weekly' => lambda { |now|
+      :biweekly => lambda { |now|
         today = now.midnight
         today.day >= 15 ? (today.change(:day => 15)..today.end_of_month) : (today.beginning_of_month..today.change(:day => 15) - 1.second)
       },

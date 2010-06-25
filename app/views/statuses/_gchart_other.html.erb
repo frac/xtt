@@ -3,9 +3,9 @@
    :data => chart_data,
    :line_colors => colors, #['224499'],
    :max_value => max,
-   :bar_width => '100',
-   :size => '380x120',
-   :custom => "chxr=1,0,24&amp;chg=0,25,1,0&amp;chbh=40",            
+   :legend => legend,
+   :size => '480x120',
+   :custom => "chxr=1,0,24&amp;chg=0,25,1,0&amp;chbh=10",            
    :axis_labels => [chart_labels * "|"],
    :axis_with_labels => %w(x y)), :style => 'margin-top:27px', :id => "#{params[:filter]}-chart", :class => 'special-chart') %>
 

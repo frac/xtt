@@ -12,7 +12,7 @@ module ProjectsHelper
         date_range.first.strftime("%A, %b %d")
       when :monthly
         "for #{date_range.first.strftime("%B")}"
-      when :'bi-weekly', :weekly
+      when :biweekly, :weekly
         "#{date_range.first.strftime("%B %d")}-#{date_range.last.strftime("%d")}"
     end
     %(#{plural} <span class="daterange">#{final}</span>)

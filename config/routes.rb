@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  status_filters = /weekly|bi-weekly|monthly|daily|bi\-weekly/
+  status_filters = /weekly|biweekly|monthly|daily/
 
   map.root :controller => 'users', :action => 'index'
 
