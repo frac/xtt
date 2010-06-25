@@ -11,7 +11,7 @@ class MembershipsController < ApplicationController
   end
   
   def update
-    @membership.update_attributes(params[:membership])
+    @membership.update_attributes(params[:membership]) unless params[:membership][:context_name].empty?
     respond_to do |format|
       format.html { redirect_to project_path(@project)}
     end
