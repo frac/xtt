@@ -177,9 +177,11 @@
       <h2 class="users">Users</h2>
       <ul class="users">
       <% @project.memberships.each do |membership| %>
-        <li>
-          <%= membership.user.login %> <%= link_to 'remove', membership_path(membership), :confirm => 'Are you sure?', :method => :delete %>
-        </li>
+        <% if membership.user != current_user and membership.user != @project.user %>
+          <li>
+            <%= membership.user.login %> <%= link_to 'remove', membership_path(membership), :confirm => 'Are you sure?', :method => :delete %>
+          </li>
+        <% end %>
       <% end %>
       </ul>
       </div>
