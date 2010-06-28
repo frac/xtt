@@ -172,7 +172,16 @@
             <% if tendril.notifies.user == current_user %><%= link_to 'edit', notify_path(:id => tendril.notifies.id) %><% end %>
           </li>
         <% end %>
-        </ul>
+      </ul>
+
+      <h2>Users</h2>
+      <ul>
+      <% @project.memberships.each do |membership| %>
+        <li>
+          <%= link_to membership.user.login, membership_path(membership), :confirm => 'Are you sure?', :method => :delete %>
+        </li>
+      <% end %>
+      </ul>
       </div>
     <% end %>
     

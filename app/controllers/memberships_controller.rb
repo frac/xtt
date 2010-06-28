@@ -23,11 +23,12 @@ class MembershipsController < ApplicationController
   end
   
   def destroy
+    user = @membership.user
+    project = @membership.project
     @membership.destroy
 
-    respond_to do |format|
-      format.js
-    end
+    flash[:notice] = "#{user.login} has been removed"
+    redirect_to project
   end
   
 protected
