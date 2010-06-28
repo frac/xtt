@@ -796,4 +796,8 @@ p.btns a {
 ul.users {
   margin-left: 15px;
 }
+
+h2.users {
+  margin-top: 10px;
+}
 /* @end */
