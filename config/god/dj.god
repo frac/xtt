@@ -1,5 +1,5 @@
 God.watch do |w|
-  w.name     = "dj"
+  w.name     = "xtt-dj"
   w.group    = 'dj'
   w.interval = 30.seconds
   w.log      = File.join(RAILS_ROOT, 'log', "#{w.name}.log")
