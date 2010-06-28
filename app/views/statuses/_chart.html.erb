@@ -11,6 +11,7 @@
     <% unless hours.empty? %>
       <% days, chart_data, total = fudge_data_from(hours, chart_labels) %>
       <% max = normalized_max(days) %>
+      <% legend = nil unless legend  # Incase legend is not passed to the chart %>
       <% chart_hash = { :max => max, :days => days, :chart_data => chart_data, :colors => colors, :date_range => date_range, :chart_labels => chart_labels, :legend => legend } %>
 
       <% if [:weekly, :monthly, :biweekly].include?(params[:filter]) -%>
