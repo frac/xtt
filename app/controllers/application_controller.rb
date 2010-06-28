@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 class ApplicationController < ActionController::Base
   cattr_accessor :host_name, :instance_writer => false
+  filter_parameter_logging :password
 
   include AuthenticatedSystem
   helper :all # include all helpers, all the time
