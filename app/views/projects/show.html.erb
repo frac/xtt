@@ -175,10 +175,10 @@
       </ul>
 
       <h2>Users</h2>
-      <ul>
+      <ul class="users">
       <% @project.memberships.each do |membership| %>
         <li>
-          <%= link_to membership.user.login, membership_path(membership), :confirm => 'Are you sure?', :method => :delete %>
+          <%= membership.user.login %> <%= link_to 'remove', membership_path(membership), :confirm => 'Are you sure?', :method => :delete %>
         </li>
       <% end %>
       </ul>
