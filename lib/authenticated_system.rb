@@ -8,7 +8,7 @@ module AuthenticatedSystem
     # Accesses the current user from the session.  Set it to :false if login fails
     # so that future calls do not hit the database.
     def current_user
-      @current_user ||= (login_from_session || login_from_basic_auth || login_from_cookie || :false)
+      @current_user ||= (login_from_session || login_from_api_key || login_from_basic_auth || login_from_cookie || :false)
     end
 
     # Store the given user id in the session.
@@ -114,5 +114,9 @@ module AuthenticatedSystem
         cookies[:auth_token] = { :value => user.remember_token, :expires => user.remember_token_expires_at }
         self.current_user = user
       end
+    end
+
+    def login_from_api_key
+      self.current_user = User.find_by_api_key(params[:api_key]) unless params[:api_key].empty?
     end
 end
