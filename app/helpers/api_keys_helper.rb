@@ -1,2 +1,2 @@
-module APIKeysHelper
+module ApiKeysHelper
 end
