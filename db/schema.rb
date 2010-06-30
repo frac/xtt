@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100623170744) do
+ActiveRecord::Schema.define(:version => 20100630014806) do
 
   create_table "bj_config", :primary_key => "bj_config_id", :force => true do |t|
     t.string "hostname"
@@ -208,6 +208,7 @@ ActiveRecord::Schema.define(:version => 20100623170744) do
     t.string   "identity_url"
     t.string   "permalink"
     t.string   "aim_status"
+    t.string   "api_key",                   :limit => 40, :default => ""
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
