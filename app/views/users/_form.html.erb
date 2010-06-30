@@ -35,3 +35,20 @@
 </p>
 <p>Your timezone is set automatically by checking the offset from your browser.
   So, don't worry if the name is incorrect, as long as the hour offset matches.</p>
+
+<% if @user.api_is_enabled? %>
+  <p>
+    Your API Key:
+    (<%= link_to 're-generate', api_key_path, :method => :post %> | <%= link_to "disable", api_key_path, :method => :delete %>)
+  </p>
+  <p>
+    <strong><%= @user.api_key %></strong>
+  </p>
+<% else %>
+  <p>
+    You'll need a unique key to make API calls. Remember to keep this key a secret as it can be used to access your account.
+  </p>
+  <p>
+    <%= link_to("Get a key", api_key_path, :method => :post) %>
+  </p>
+<% end %>
