@@ -112,6 +112,6 @@ protected
   end
 
   def generate_api_key!
-    self.updated_attribute(:api_key, secure_digest(Time.now, (1..10).map { rand.to_i }))
+    self.update_attribute(:api_key, secure_digest(Time.now, (1..10).map { rand.to_i }))
   end
 end
