@@ -117,6 +117,6 @@ module AuthenticatedSystem
     end
 
     def login_from_api_key
-      self.current_user = User.find_by_api_key(params[:api_key]) unless params[:api_key].empty?
+      self.current_user = User.find_by_api_key(params[:api_key]) unless params.nil? and params[:api_key].empty?
     end
 end
