@@ -39,7 +39,7 @@
 <% if @user.api_is_enabled? %>
   <p>
     Your API Key:
-    (<%= link_to 're-generate', api_key_path, :method => :post %> | <%= link_to "disable", api_key_path, :method => :delete %>)
+    (<%= link_to 're-generate', api_keys_path, :method => :post %> | <%= link_to "disable", api_key_path, :method => :delete %>)
   </p>
   <p>
     <strong><%= @user.api_key %></strong>
@@ -49,6 +49,6 @@
     You'll need a unique key to make API calls. Remember to keep this key a secret as it can be used to access your account.
   </p>
   <p>
-    <%= link_to("Get a key", api_key_path, :method => :post) %>
+    <%= link_to("Get a key", api_keys_path, :method => :post) %>
   </p>
 <% end %>

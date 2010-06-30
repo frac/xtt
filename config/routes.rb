@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :helps, :controller => "help"
   map.resources :statuses, :collection => { 'import' => :get, :last => :get }
   map.resources :projects, :member     => { :invite => :post }
-  map.resources :contexts, :notifies, :tendrils, :api_key
+  map.resources :contexts, :notifies, :tendrils, :api_keys
   
   map.filtered_user 'users/:id/:filter', :filter => status_filters, :controller => 'users', :action => 'show'
   
