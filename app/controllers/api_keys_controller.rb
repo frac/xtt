@@ -5,7 +5,7 @@ class APIKeysController < ApplicationController
   def create
     current_user.enable_api!
 
-    respond_to.do |format|
+    respond_to do |format|
       format.html { redirect_to edit_user_path(current_user) }
     end
   end
@@ -13,7 +13,7 @@ class APIKeysController < ApplicationController
   def destroy
     current_user.disable_api!
 
-    respond_to.do |format|
+    respond_to do |format|
       format.html { redirect_to edit_user_path(current_user) }
     end
   end
