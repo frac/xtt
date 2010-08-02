@@ -20,7 +20,7 @@
         <%= render :partial => "statuses/gchart_other", :locals => chart_hash %>
       <% end -%>
     <% end # hours.empty? -%>
-  <% end # ! daily %>
+  <% end # ! daily -%>
   
   <p class="special-num">
     <% if total && chart.hours(params[:filter], params[:date]) > total %>
